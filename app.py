@@ -41,8 +41,8 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    error_message = "請輸入想查詢的NBA隊名縮寫(Ex: LAL)"
-    team_not_found_message = "查無此隊伍，請重新輸入。"
+    #error_message = "請輸入想查詢的NBA隊名縮寫(Ex: LAL)"
+    #team_not_found_message = "查無此隊伍，請重新輸入。"
     message = TextSendMessage(text=event.message.text)
     line_bot_api.reply_message(event.reply_token, message)
 

@@ -178,7 +178,8 @@ if __name__ == "__main__":
     message = []
 
     team_dict = team_name()
-    date = input('Please enter the date(Ex: 20180101)(Default: Present): \n')
+    #date = input('Please enter the date(Ex: 20180101)(Default: Present): \n')
+    date = []
     if not date:
         datetime = datetime.today()
         date = datetime.strftime("%Y%m%d")
@@ -187,7 +188,8 @@ if __name__ == "__main__":
 
     # date = '20170306'
 
-    team_abbr = input("Please enter a team name with abbreviation(Default: LAL): \n")
+    #team_abbr = input("Please enter a team name with abbreviation(Default: LAL): \n")
+    team_abbr = []
     if not team_abbr:
         team = 'LAL'
     else:
