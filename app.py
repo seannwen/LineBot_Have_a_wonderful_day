@@ -14,13 +14,13 @@ import nba
 app = Flask(__name__)
 
 # Channel Access Token
-#access_token = os.environ.get('ACCESS_TOKEN')
-access_token = 'ACCESS_TOKEN'
+access_token = os.environ.get('ACCESS_TOKEN')
+#access_token = 'ACCESS_TOKEN'
 line_bot_api = LineBotApi(access_token)
 
 # Channel Secretos.environ.get('ACCESS_TOKEN')
-#channel_secret = os.environ.get('CHANNEL_SECRET')
-channel_secret = 'CHANNEL_SECRET'
+channel_secret = os.environ.get('CHANNEL_SECRET')
+#channel_secret = 'CHANNEL_SECRET'
 handler = WebhookHandler(channel_secret)
 
 # 監聽所有來自 /callback 的 Post Request
