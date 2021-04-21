@@ -4,7 +4,7 @@ import json
 import requests
 from bs4 import BeautifulSoup, element
 from datetime import datetime, timedelta
-from nba_email import send_email
+#from nba_email import send_email
 from prettytable import PrettyTable
 
 
