@@ -42,7 +42,7 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    message = TextSendMessage(text=event.message.text)
+    #message = TextSendMessage(text=event.message.text)
     #nba_response = nba #blablablabla
     message = TextSendMessage(text=event.message.text)
     line_bot_api.reply_message(event.reply_token, message)
@@ -50,4 +50,4 @@ def handle_message(event):
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='127.0.0.1', port=port)
+    app.run(host='0.0.0.0', port=port)
