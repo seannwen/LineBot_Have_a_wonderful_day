@@ -7,19 +7,19 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
-from var.variable import ACCESS_TOKEN, CHANNEL_SECRET
+# from var.variable import ACCESS_TOKEN, CHANNEL_SECRET
 import os
 import nba
 
 app = Flask(__name__)
 
 # Channel Access Token
-# access_token = os.environ.get('ACCESS_TOKEN')
+ACCESS_TOKEN = os.environ.get('ACCESS_TOKEN')
 #access_token = 'ACCESS_TOKEN'
 line_bot_api = LineBotApi(ACCESS_TOKEN)
 
 # Channel Secret
-# channel_secret = os.environ.get('CHANNEL_SECRET')
+CHANNEL_SECRET = os.environ.get('CHANNEL_SECRET')
 #channel_secret = 'CHANNEL_SECRET'
 #handler = WebhookHandler(channel_secret)
 handler = WebhookHandler(CHANNEL_SECRET)
@@ -42,12 +42,25 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    #message = TextSendMessage(text=event.message.text)
-    #nba_response = nba #blablablabla
     message = TextSendMessage(text=event.message.text)
-    line_bot_api.reply_message(event.reply_token, message)
 
+    date = []
+    datetime = datetime.today()
+    date = datetime.strftime("%Y%m%d")
+
+
+    if message.text == 'NBA':
+        #message = nba
+        web = nba.get_web_data(date)  # get the data from website
+        message = nba.get_daily_score(web)
+        line_bot_api.reply_message(event.reply_token, message)
+    else:
+
+    #nba_response = 'fuck' #blablablabla
+        #message = TextSendMessage(text=event.message.text)
+        #line_bot_api.reply_message(event.reply_token, message)
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=message))
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='127.0.0.1', port=port)

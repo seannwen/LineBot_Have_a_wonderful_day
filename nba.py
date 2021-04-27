@@ -199,7 +199,7 @@ if __name__ == "__main__":
     web = get_web_data(date)  # get the data from website
     get_daily_score(web)
     # print '\n'.join(message)
-    next_game = next_game(team)  # get the data of next game
+    #next_game = next_game(team)  # get the data of next game
     # get_hist_score(next_game[0], next_game[1])
 
     print ('\n'.join(message))
