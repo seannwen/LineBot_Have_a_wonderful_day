@@ -7,7 +7,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
-from var.variable import ACCESS_TOKEN, CHANNEL_SECRET
+#from var.variable import ACCESS_TOKEN, CHANNEL_SECRET
 import os
 import nba
 import ptt
@@ -18,12 +18,12 @@ app = Flask(__name__)
 
 # Channel Access Token
 
-#ACCESS_TOKEN = os.environ.get('ACCESS_TOKEN')
+ACCESS_TOKEN = os.environ.get('ACCESS_TOKEN')
 
 line_bot_api = LineBotApi(ACCESS_TOKEN)
 
 # Channel Secret
-#CHANNEL_SECRET = os.environ.get(CHANNEL_SECRET)
+CHANNEL_SECRET = os.environ.get(CHANNEL_SECRET)
 #handler = WebhookHandler(channel_secret)
 handler = WebhookHandler(CHANNEL_SECRET)
 
