@@ -38,8 +38,14 @@ def insert_sting_middle(str, word):
 
 def get_daily_score(web):
     # get the score data from the nba website
+    message = []
+    date = []
+    today = datetime.today()
+    date = today.strftime("%Y%m%d")
     message.append('Date: {0}/{1}/{2}'.format(date[:4], date[4:6], date[6:]))
     message.append('{0}Schedule{0}\n'.format('-' * 30))
+    team_dict = team_name()
+    
     # get the data of daily games
     for index, game in enumerate(web['games']):
         host = game['hTeam']
@@ -68,6 +74,7 @@ def get_daily_score(web):
         message.append('Location: {}'.format(location['name']))
         message.append('Time: {}'.format(local_time.strftime('%Y/%m/%d %H:%M')))
         message.append('Info: {}\n'.format('N/A' if not info['text'] else info['text']))
+    return message
 
 
 def next_game(team):
@@ -178,6 +185,7 @@ if __name__ == "__main__":
     message = []
 
     team_dict = team_name()
+
     #date = input('Please enter the date(Ex: 20180101)(Default: Present): \n')
     date = []
     if not date:
@@ -202,7 +210,7 @@ if __name__ == "__main__":
     #next_game = next_game(team)  # get the data of next game
     # get_hist_score(next_game[0], next_game[1])
 
-    print ('\n'.join(message))
+    #print ('\n'.join(message))
 
     # email_subject = 'NBA daily report!!\n'
     # send_email(email_subject, '\n'.join(message))
