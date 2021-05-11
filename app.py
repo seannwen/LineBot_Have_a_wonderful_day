@@ -11,7 +11,6 @@ from linebot.models import *
 import os
 import nba
 import ptt
-
 from datetime import datetime, timedelta
 
 app = Flask(__name__)
