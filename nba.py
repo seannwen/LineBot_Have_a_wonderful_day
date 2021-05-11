@@ -5,9 +5,7 @@ import requests
 from bs4 import BeautifulSoup, element
 from datetime import datetime, timedelta
 from prettytable import PrettyTable
-from PIL import Image, ImageDraw, ImageFont
-from matplotlib import pyplot as plt
-from IPython.display import display
+
 
 def get_web_data():
     # get the score data from the nba website
