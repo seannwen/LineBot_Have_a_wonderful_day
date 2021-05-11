@@ -7,7 +7,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
-from var.variable import ACCESS_TOKEN, CHANNEL_SECRET
+#from var.variable import ACCESS_TOKEN, CHANNEL_SECRET
 import os
 import nba
 import ptt
