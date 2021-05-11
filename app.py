@@ -7,7 +7,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
-#from var.variable import ACCESS_TOKEN, CHANNEL_SECRET
+from var.variable import ACCESS_TOKEN, CHANNEL_SECRET
 import os
 import nba
 import ptt
@@ -17,7 +17,6 @@ from datetime import datetime, timedelta
 app = Flask(__name__)
 
 # Channel Access Token
-
 ACCESS_TOKEN = os.environ.get('ACCESS_TOKEN')
 line_bot_api = LineBotApi(ACCESS_TOKEN)
 
@@ -53,10 +52,9 @@ def handle_message(event):
 
     # NBA & PTT
     if split_message[0].lower() == 'nba':
-        # nba_team_dict = nba.team_name()
+
         nba_web = nba.get_web_data()  # get the daily data from website
         nba_daily_score = '\n'.join(nba.get_daily_score())
-
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=nba_daily_score))
 
 
